@@ -5,27 +5,28 @@
 		<title></title>
 		<script type="text/javascript" src="js/d3.min.js" ></script>
 		<script type="text/javascript" src="js/strucMap.min.js" ></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js" ></script>
 		<link rel="stylesheet" href="css/strucMap.min.css" />
-		
 	</head>
 	<body>
-		<div id="title"  >后端架构师技术栈知识图谱</div>
-		<div id="topomap" style="margin: 0 auto;" ></div>
+		<div id="title"  >智能知识图谱</div>
+		<div id="topomap"></div>
 		<script type="text/javascript">
-
+			w = $('#topomap').width();
+			h = $(window).height()
 			var nodePX = 0;
 			var nodePY = 0;
 
 	        var options = {
 	        	selector:"#topomap",
-	            width: 1440,//实际展开图宽度
-	            height: 1440,//实际展开图高度
+	            width: w,//实际展开图宽度
+	            height: h,//实际展开图高度
 	            lineLength:100,
 //	            textColor:"#000",
 //	            textFontFamily:'',
 	            nodesClick: function(t) {
-					//if(t.index==0) t.fixed=1;//判断如果是第一级，移动后就将它固定
-					t.fixed = 1;
+					//if(t.index==0) t.fixed=true;//判断如果是第一级，移动后就将它固定
+					t.fixed = true;
 					console.log(t);
 					var nodeX = JSON.parse(JSON.stringify(t.x));
 					var nodeY = JSON.parse(JSON.stringify(t.y));
@@ -37,11 +38,11 @@
 				nodesDragstart:function(t) {
 					nodePX = JSON.parse(JSON.stringify(t.x));
 					nodePY = JSON.parse(JSON.stringify(t.y));
-					//console.log("移动开始",JSON.parse(JSON.stringify(t.x)),JSON.parse(JSON.stringify(t.y)));
+					console.log("移动开始",JSON.parse(JSON.stringify(t.x)),JSON.parse(JSON.stringify(t.y)));
 				}
 				};
 						
-	            var nodesJson = [{"fixed":true,"id":0,"index":0,"prop":{"name":"后端架构师技术图谱","size":32},"x":724,"y":616},
+	            var nodesJson = [{"fixed":true,"id":0,"index":0,"prop":{"name":"测试智能图谱",size:32},"x":w/2,"y":h/2},
 												{"id":1,"index":1,"prop":{"name":"数据结构","size":25}},
 												{"id":2,"index":1,"prop":{"name":"常用算法","size":25}},
 												{"id":3,"index":1,"prop":{"name":"并发","size":25}},
@@ -60,36 +61,36 @@
 												{"id":16,"index":1,"prop":{"name":"设计思想&开发模式","size":25}},
 												{"id":17,"index":1,"prop":{"name":"项目管理","size":25}},
 
-												{"id":18,"index":2,"prop":{"name":"队列","size":15}},
-												{"id":19,"index":2,"prop":{"name":"集合","size":15}},
-												{"id":20,"index":2,"prop":{"name":"链表、数组","size":15}},
-												{"id":21,"index":2,"prop":{"name":"字典、关联数组","size":15}},
-												{"id":22,"index":2,"prop":{"name":"栈","size":15}},
-												{"id":23,"index":2,"prop":{"name":"树","size":15}},
-												{"id":24,"index":2,"prop":{"name":"BitSet","size":15}},
+												{"id":18,"index":2,"prop":{"name":"队列","size":25}},
+												{"id":19,"index":2,"prop":{"name":"集合","size":25}},
+												{"id":20,"index":2,"prop":{"name":"链表、数组","size":25}},
+												{"id":21,"index":2,"prop":{"name":"字典、关联数组","size":25}},
+												{"id":22,"index":2,"prop":{"name":"栈","size":25}},
+												{"id":23,"index":2,"prop":{"name":"树","size":25}},
+												{"id":24,"index":2,"prop":{"name":"BitSet","size":25}},
 
-												{"id":25,"index":2,"prop":{"name":"排序、查找算法","size":15}},
-												{"id":26,"index":2,"prop":{"name":"布隆过滤器","size":15}},
-												{"id":27,"index":2,"prop":{"name":"字符串比较","size":15}},
-												{"id":28,"index":2,"prop":{"name":"深度优先、广度优先","size":15}},
-												{"id":29,"index":2,"prop":{"name":"贪心算法","size":15}},
-												{"id":30,"index":2,"prop":{"name":"回溯算法","size":15}},
-												 {"id":31,"index":2,"prop":{"name":"剪枝算法","size":15}},
-												 {"id":32,"index":2,"prop":{"name":"动态规划","size":15}},
-												 {"id":33,"index":2,"prop":{"name":"朴素贝叶斯","size":15}},
-												 {"id":34,"index":2,"prop":{"name":"推荐算法","size":15}},
-												 {"id":35,"index":2,"prop":{"name":"最小生成树算法","size":15}},
-												 {"id":36,"index":2,"prop":{"name":"最短路径算法","size":15}},
+												{"id":25,"index":2,"prop":{"name":"排序、查找算法","size":25}},
+												{"id":26,"index":2,"prop":{"name":"布隆过滤器","size":25}},
+												{"id":27,"index":2,"prop":{"name":"字符串比较","size":25}},
+												{"id":28,"index":2,"prop":{"name":"深度优先、广度优先","size":25}},
+												{"id":29,"index":2,"prop":{"name":"贪心算法","size":25}},
+												{"id":30,"index":2,"prop":{"name":"回溯算法","size":25}},
+												 {"id":31,"index":2,"prop":{"name":"剪枝算法","size":25}},
+												 {"id":32,"index":2,"prop":{"name":"动态规划","size":25}},
+												 {"id":33,"index":2,"prop":{"name":"朴素贝叶斯","size":25}},
+												 {"id":34,"index":2,"prop":{"name":"推荐算法","size":25}},
+												 {"id":35,"index":2,"prop":{"name":"最小生成树算法","size":25}},
+												 {"id":36,"index":2,"prop":{"name":"最短路径算法","size":25}},
 
-												 {"id":37,"index":2,"prop":{"name":"Java 并发","size":15}},
-												 {"id":38,"index":2,"prop":{"name":"多线程","size":15}},
-												 {"id":39,"index":2,"prop":{"name":"线程安全","size":15}},
-												 {"id":40,"index":2,"prop":{"name":"一致性、事务","size":15}},
-												 {"id":41,"index":2,"prop":{"name":"锁","size":15}},
+												 {"id":37,"index":2,"prop":{"name":"Java 并发","size":25}},
+												 {"id":38,"index":2,"prop":{"name":"多线程","size":25}},
+												 {"id":39,"index":2,"prop":{"name":"线程安全","size":25}},
+												 {"id":40,"index":2,"prop":{"name":"一致性、事务","size":25}},
+												 {"id":41,"index":2,"prop":{"name":"锁","size":25}},
 
 
-												 {"id":42,"index":2,"prop":{"name":"计算机原理","size":15}},
-												 {"id":43,"index":2,"prop":{"name":"CPU","size":15}},
+												 {"id":42,"index":2,"prop":{"name":"计算机原理","size":25}},
+												 {"id":43,"index":2,"prop":{"name":"CPU","size":25}},
 												 {"id":44,"index":2,"prop":{"name":"进程","size":15}},
 												 {"id":45,"index":2,"prop":{"name":"线程","size":15}},
 												 {"id":46,"index":2,"prop":{"name":"协程","size":15}},
@@ -218,91 +219,91 @@
 								];
 				//source和target都是按照数组的顺序来的，下标
 	           	var linksJson = [
-								{"source":0,"target":1,},
-								{"source":0,"target":2,},
-								{"source":0,"target":3,},
-								{"source":0,"target":4,},
-								{"source":0,"target":5,},
-								{"source":0,"target":6,},
-								{"source":0,"target":7,},
-								{"source":0,"target":8,},
-								{"source":0,"target":9,},
-								{"source":0,"target":10,},
-								{"source":0,"target":11,},
-								{"source":0,"target":12,},
-								{"source":0,"target":13,},
-								{"source":0,"target":14,},
-								{"source":0,"target":15,},
-								{"source":0,"target":16,},
-								{"source":0,"target":17,},
+								{"source":0,"target":1,"desc":"关系"},
+								{"source":0,"target":2,"desc":"关系"},
+								{"source":0,"target":3,"desc":"关系"},
+								{"source":0,"target":4,"desc":"关系"},
+								{"source":0,"target":5,"desc":"关系"},
+								{"source":0,"target":6,"desc":"关系"},
+								{"source":0,"target":7,"desc":"关系"},
+								{"source":0,"target":8,"desc":"关系"},
+								{"source":0,"target":9,"desc":"关系"},
+								{"source":0,"target":10,"desc":"关系"},
+								{"source":0,"target":11,"desc":"关系"},
+								{"source":0,"target":12,"desc":"关系"},
+								{"source":0,"target":13,"desc":"关系"},
+								{"source":0,"target":14,"desc":"关系"},
+								{"source":0,"target":15,"desc":"关系"},
+								{"source":0,"target":16,"desc":"关系"},
+								{"source":0,"target":17,"desc":"关系"},
 
-								{"source":1,"target":18,},
-								{"source":1,"target":19,},
-								{"source":1,"target":20,},
-								{"source":1,"target":21,},
-								{"source":1,"target":22,},
-								{"source":1,"target":23,},
-								{"source":1,"target":24,},
+								{"source":1,"target":18,"desc":"关系"},
+								{"source":1,"target":19,"desc":"关系"},
+								{"source":1,"target":20,"desc":"关系"},
+								{"source":1,"target":21,"desc":"关系"},
+								{"source":1,"target":22,"desc":"关系"},
+								{"source":1,"target":23,"desc":"关系"},
+								{"source":1,"target":24,"desc":"关系"},
 
-								{"source":2,"target":25,},
-								{"source":2,"target":26,},
-								{"source":2,"target":27,},
-								{"source":2,"target":28,},
-								{"source":2,"target":29,},
-								{"source":2,"target":30,},
-								{"source":2,"target":31,},
-								{"source":2,"target":32,},
-								{"source":2,"target":33,},
-								{"source":2,"target":34,},
-								{"source":2,"target":35,},
-								{"source":2,"target":36,},
+								{"source":2,"target":25,"desc":"关系"},
+								{"source":2,"target":26,"desc":"关系"},
+								{"source":2,"target":27,"desc":"关系"},
+								{"source":2,"target":28,"desc":"关系"},
+								{"source":2,"target":29,"desc":"关系"},
+								{"source":2,"target":30,"desc":"关系"},
+								{"source":2,"target":31,"desc":"关系"},
+								{"source":2,"target":32,"desc":"关系"},
+								{"source":2,"target":33,"desc":"关系"},
+								{"source":2,"target":34,"desc":"关系"},
+								{"source":2,"target":35,"desc":"关系"},
+								{"source":2,"target":36,"desc":"关系"},
 
-								{"source":3,"target":37,},
-								{"source":3,"target":38,},
-								{"source":3,"target":39,},
-								{"source":3,"target":40,},
-								{"source":3,"target":41,},
+								{"source":3,"target":37,"desc":"关系"},
+								{"source":3,"target":38,"desc":"关系"},
+								{"source":3,"target":39,"desc":"关系"},
+								{"source":3,"target":40,"desc":"关系"},
+								{"source":3,"target":41,"desc":"关系"},
 
-								{"source":4,"target":42,},
-								{"source":4,"target":43,},
-								{"source":4,"target":44,},
-								{"source":4,"target":45,},
-								{"source":4,"target":46,},
-								{"source":4,"target":47,},
+								{"source":4,"target":42,"desc":"关系"},
+								{"source":4,"target":43,"desc":"关系"},
+								{"source":4,"target":44,"desc":"关系"},
+								{"source":4,"target":45,"desc":"关系"},
+								{"source":4,"target":46,"desc":"关系"},
+								{"source":4,"target":47,"desc":"关系"},
 
-								{"source":5,"target":48,},
-								{"source":5,"target":49,},
-								{"source":5,"target":50,},
-								{"source":5,"target":51,},
-								{"source":5,"target":52,},
-								{"source":5,"target":53,},
-								{"source":5,"target":54,},
-								{"source":5,"target":55,},
-								{"source":5,"target":56,},
-								{"source":5,"target":57,},
-								{"source":6,"target":58,},
-								{"source":6,"target":59,},
-								{"source":6,"target":60,},
-								{"source":6,"target":61,},
-								{"source":6,"target":62,},
-								{"source":6,"target":63,},
-								{"source":6,"target":64,},
-								{"source":6,"target":65,},
-								{"source":6,"target":66,},
-								{"source":6,"target":67,},
-								{"source":6,"target":68,},
-								{"source":7,"target":69,},
-								{"source":7,"target":70,},
-								{"source":7,"target":71,},
-								{"source":7,"target":72,},
-								{"source":7,"target":73,},
-								{"source":7,"target":74,},
-								{"source":7,"target":75,},
-								{"source":7,"target":76,},
-								{"source":7,"target":77,},
-								{"source":7,"target":78,},
-								{"source":7,"target":79,},
-								{"source":8,"target":80,},
+								{"source":5,"target":48,"desc":"关系"},
+								{"source":5,"target":49,"desc":"关系"},
+								{"source":5,"target":50,"desc":"关系"},
+								{"source":5,"target":51,"desc":"关系"},
+								{"source":5,"target":52,"desc":"关系"},
+								{"source":5,"target":53,"desc":"关系"},
+								{"source":5,"target":54,"desc":"关系"},
+								{"source":5,"target":55,"desc":"关系"},
+								{"source":5,"target":56,"desc":"关系"},
+								{"source":5,"target":57,"desc":"关系"},
+								{"source":6,"target":58,"desc":"关系"},
+								{"source":6,"target":59,"desc":"关系"},
+								{"source":6,"target":60,"desc":"关系"},
+								{"source":6,"target":61,"desc":"关系"},
+								{"source":6,"target":62,"desc":"关系"},
+								{"source":6,"target":63,"desc":"关系"},
+								{"source":6,"target":64,"desc":"关系"},
+								{"source":6,"target":65,"desc":"关系"},
+								{"source":6,"target":66,"desc":"关系"},
+								{"source":6,"target":67,"desc":"关系"},
+								{"source":6,"target":68,"desc":"关系"},
+								{"source":7,"target":69,"desc":"关系"},
+								{"source":7,"target":70,"desc":"关系"},
+								{"source":7,"target":71,"desc":"关系"},
+								{"source":7,"target":72,"desc":"关系"},
+								{"source":7,"target":73,"desc":"关系"},
+								{"source":7,"target":74,"desc":"关系"},
+								{"source":7,"target":75,"desc":"关系"},
+								{"source":7,"target":76,"desc":"关系"},
+								{"source":7,"target":77,"desc":"关系"},
+								{"source":7,"target":78,"desc":"关系"},
+								{"source":7,"target":79,"desc":"关系"},
+								{"source":8,"target":80,"desc":"关系"},
 								{"source":8,"target":81,},
 								{"source":8,"target":82,},
 								{"source":8,"target":83,},
@@ -374,12 +375,12 @@
 								{"source":17,"target":141,},
 								{"source":17,"target":142,},
 								{"source":17,"target":143,},
-								{"source":17,"target":144,}
-
+								{"source":17,"target":144,},
+								{"source":17,"target":16,},
+								{"source":17,"target":15}
 
 								];
-
-				console.log("初始化打印",linksJson);
+				console.log("初始化打印", linksJson);
 	            loadMap(options, nodesJson, linksJson);
 		</script>
 	</body>
